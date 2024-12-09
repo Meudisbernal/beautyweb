@@ -28,12 +28,10 @@ function renderProducts() {
       </div>
     `;
 
-    // Insertar el producto en el contenedor
     productContainer.insertAdjacentHTML("beforeend", productHTML);
   });
 }
 
-// Llamar a la función para renderizar los productos
 renderProducts();
 
 
@@ -47,9 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   productLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
-      e.preventDefault(); // Previene la acción por defecto
+      e.preventDefault(); 
 
-      // Obtiene el ID del producto desde el atributo data-id
       const productId = link.getAttribute("data-id");
 
       // Busca el producto correspondiente en el array
