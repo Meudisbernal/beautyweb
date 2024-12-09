@@ -6,6 +6,7 @@ export const products = [
       price: 10,
       image: "images/Rostro/base1.jpg",
       description: "Base líquida para un acabado perfecto.",
+      
     },
     {
       id: 2,

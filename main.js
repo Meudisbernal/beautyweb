@@ -1,24 +1,18 @@
 import { products } from "./productos.js";
 
-
 const productContainer = document.getElementById("productContainer");
 
-
 function renderProducts() {
-
   productContainer.innerHTML = "";
-
-  // Recorrer el arreglo de productos y crear el HTML
+  
   products.forEach((product) => {
     const productHTML = `
       <div class="new-product-box-wrapper ${product.category.toLowerCase()}">
         <div class="new-product-box">
-           <!-- Imagen -->
-          <a href="product_page.html?id=${product.id}" class="new-product-img" data-id="${product.id}">
+          <a href="product_page.html?id=${product.id}" class="new-product-img">
             <img src="${product.image}" alt="${product.title}" />
             <span>${product.category}</span>
           </a>
-          <!-- Texto -->
           <div class="new-product-text">
             <a href="product_page.html?id=${product.id}" class="new-product-title">${product.title}</a>
             <span class="new-producto-price">${product.price}$</span>
@@ -27,7 +21,7 @@ function renderProducts() {
         </div>
       </div>
     `;
-
+    
     productContainer.insertAdjacentHTML("beforeend", productHTML);
   });
 }
@@ -35,36 +29,40 @@ function renderProducts() {
 renderProducts();
 
 
-
 //Evento para capturar el clic del producto y guarda los datos del producto 
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Selecciona todos los enlaces de productos
-  const productLinks = document.querySelectorAll(".new-product-img");
-
-  productLinks.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault(); 
-
-      const productId = link.getAttribute("data-id");
-
-      // Busca el producto correspondiente en el array
-      const selectedProduct = products.find(
-        (product) => product.id === parseInt(productId)
-      );
-
-      if (selectedProduct) {
-        // Guarda el producto en localStorage
-        localStorage.setItem("selectedProduct", JSON.stringify(selectedProduct));
-
-        // Redirige a la página del producto
-        window.location.href = "product_page.html";
-      }
-    });
-  });
+  // Obtener el ID del producto de la URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = parseInt(urlParams.get('id')); // Convertir a número
+  
+  // Buscar el producto
+  const product = products.find(p => p.id === productId);
+  
+  if (product) {
+    // Actualizar el contenido de la página
+    const productImg = document.querySelector('.d-product-img img');
+    const category = document.querySelector('.category');
+    const title = document.querySelector('.d-product-text strong');
+    const details = document.querySelector('.details');
+    const price = document.querySelector('.price');
+    const buy = document.querySelector('.buy');
+    
+    productImg.src = product.image;
+    productImg.alt = product.title;
+    category.textContent = `${product.category} >`;
+    title.textContent = product.title;
+    details.textContent = product.description || "Sin descripción disponible";
+    price.textContent = `${product.price}$`;
+    buy.href = `https://wa.me/5491123456789?text=Hola!%20Quiero%20comprar%20el%20producto%20${product.title}`;
+  } else {
+    console.error('Producto no encontrado');
+    // Mostrar mensaje de error en la página
+    document.querySelector('.d-product-text').innerHTML = 
+      '<p>Lo sentimos, no se encontró el producto.</p>';
+  }
 });
-
 
 
 
