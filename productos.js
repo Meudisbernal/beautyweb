@@ -161,7 +161,7 @@ export const products = [
         description: "",
       },
       {
-        id: 7,
+        id: 21,
         category: "pestana",
         title: "Set of Bridel Eye Lashies",
         price: 10,

@@ -443,8 +443,14 @@ ul{
 
 .footer-container {
     width: 100%;
+    
 
+}
 
+.box-footer p {
+    white-space: normal;
+    word-break: break-all;
+    text-wrap: pretty;
 }
 
 .footer-container .grupo-1 {

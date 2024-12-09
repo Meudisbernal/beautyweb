@@ -23,4 +23,5 @@ if (product) {
 } else {
   // Si no se encuentra el producto, mostrar un mensaje de error
   document.querySelector('.d-product-text').innerHTML = "<p>Producto no encontrado.</p>";
+  document.querySelector('.d-product-img img').src = "";
 }
