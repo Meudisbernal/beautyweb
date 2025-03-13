@@ -33,6 +33,21 @@
             <a href="https://wa.me/584121179225?text=Hola!%20Estoy%20interesada%20en%20ver%20catalogo%20de%20productos.%20" class="nav-whatsapp">
                 <i class="fa-brands fa-whatsapp"></i>
             </a>
+            <div class="cart-container">
+                <a href="#" id="cart"  class="nav-whatsapp">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cart-count">0</span>
+                </a>
+
+                    <!-- Carrito Desplegable -->
+                <div id="cart-list" class="cart-list" style="display:none;">
+                    <h3>Productos en tu carrito</h3>
+                    <div id="cart-products" class="cart-products">
+                        <!-- Los productos agregados se mostrarán aquí -->
+                    </div>
+                    <button id="buy-now">Comprar  <i class="fa-brands fa-whatsapp"></i></button>
+                </div>
+            </div>
         </div>
 
     </nav> 
@@ -62,7 +77,10 @@
           </div>
           <!--btn-->
           <div class="product-buy">
-          <a class="buy" href="https://wa.me/584248309511?text=Hola!%20Estoy%20interesada%20en%20comprar%20producto%20">Comprar <i class="fa-brands fa-whatsapp fa-buy"></i> </a>
+             <a class="buy" href="https://wa.me/584248309511?text=Hola!%20Estoy%20interesada%20en%20comprar%20producto%20">Comprar <i class="fa-brands fa-whatsapp fa-buy"></i> 
+            </a>
+            <a class="buy" id="add-to-cart" href="#" data-id="21" data-product="Base de maquillaje AOA Satin Drops - Tono: L2" data-price="3"> Agregar carrito <i class="fa-solid fa-cart-shopping fa-buy"></i>
+            </a>
         </div>
       </section>
       
