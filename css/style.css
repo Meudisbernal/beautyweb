@@ -250,7 +250,7 @@ ul{
 /*==new_products===================*/
 #new_products{
     max-width: 1200px;
-    width: auto; /* ojo aqui que pueda ser que me este dando error */
+    width: 90%; /* ojo aqui que pueda ser que me este dando error */
     margin: 50px auto;
 }
 .new-p-heading{

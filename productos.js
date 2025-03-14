@@ -2,7 +2,7 @@ export const products = [
     {
       id: 1,
       category: "rostro",
-      title: "AOA Puff + Set Polvo Fijador",
+      title: "AOA Puff + Set Polvo Fijador - Brightening",
       price: 3,
       image: "images/Rostro/polvo1.png",
       description: "Consigue una piel de ensueño con nuestra nueva fórmula + mejorada: polvos sedosos con un toque de cobertura transparente para fijar el maquillaje y prolongarlo. 2 acabados para una cobertura natural y sin brillos Brightening: corrige cualquier tono de piel, con un brillo que refleja la luz para un brillo natural sin brillo.",
@@ -11,7 +11,7 @@ export const products = [
     {
       id: 2,
       category: "Rostro",
-      title: "AOA Puff + Set Polvo Fijador",
+      title: "AOA Puff + Set Polvo Fijador - Translúcido",
       price: 3,
       image: "images/Rostro/polvo2.png",
       description: "Consigue una piel de ensueño con nuestra nueva fórmula + mejorada: polvos sedosos con un toque de cobertura transparente para fijar el maquillaje y prolongarlo. 2 acabados para una cobertura natural y sin brillos Translúcido: fija la claridad en todos los tonos de piel, perfecto para hornear + fijar los puntos más altos del rostro.",
@@ -171,7 +171,7 @@ export const products = [
       {
         id: 20,
         category: "Rostro",
-        title: "Base de maquillaje AOA Satin Drops",
+        title: "Base de maquillaje AOA Satin Drops - Tono: M1",
         price: 3,
         image: "images/Rostro/base-m1.png",
         description: "¡Controla tu cobertura con AOA Satin Drops Foundation! Por qué nos encanta esto: - Ligero. - Acabado natural satinado que nunca se siente pesado. - Cobertura modulable y personalizable. - Larga duración.",
