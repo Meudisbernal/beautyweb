@@ -7,16 +7,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-// Mostrar u ocultar el carrito desplegable
+    // Mostrar u ocultar el carrito desplegable
     cartIcon.addEventListener("click", (event) => {
         event.preventDefault();
         cartList.style.display = (cartList.style.display === "none" || cartList.style.display === "") ? "block" : "none";
     });
 
-// Actualizar la cantidad de productos en el carrito
+    // Actualizar la cantidad de productos en el carrito
     function updateCartCount() {
         if (cart.length > 0) {
-            // Contar la cantidad total de productos sumando las cantidades de cada uno
             const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
             cartCount.textContent = totalQuantity;
             cartCount.style.display = "inline"; // Mostrar el contador
@@ -25,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-// Actualizar la vista del carrito
+    // Actualizar la vista del carrito
     function updateCartView() {
         cartProductsContainer.innerHTML = "";
 
@@ -37,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let totalPrice = 0; // Variable para calcular el precio total
 
         cart.forEach((item, index) => {
-            // Calcular el precio total del producto (cantidad * precio)
             const itemTotalPrice = item.quantity * item.price;
             totalPrice += itemTotalPrice; // Sumar el total al precio global
 
@@ -66,10 +64,8 @@ document.addEventListener("DOMContentLoaded", () => {
             button.addEventListener("click", (event) => {
                 const index = event.target.dataset.index;
                 if (cart[index].quantity > 1) {
-                    // Reducir la cantidad en 1
                     cart[index].quantity -= 1;
                 } else {
-                    // Eliminar el producto si la cantidad es 1
                     cart.splice(index, 1);
                 }
                 localStorage.setItem("cart", JSON.stringify(cart));
@@ -78,7 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
-
 
     // 📩 Evento para comprar por WhatsApp
     buyNowButton.addEventListener('click', () => {
@@ -92,6 +87,13 @@ document.addEventListener("DOMContentLoaded", () => {
             message += `${item.quantity} - ${item.title} - ${item.price}$%0A`;
         });
 
+        // Vaciar el carrito en el localStorage después de hacer clic en comprar
+        localStorage.removeItem('cart');
+        
+        // Actualizar la vista del carrito a vacío
+        updateCartView();
+
+        // Redirigir a WhatsApp
         window.location.href = `https://wa.me/584248309511?text=${message}`;
     });
 
