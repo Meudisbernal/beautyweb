@@ -168,44 +168,62 @@ cartIcon.addEventListener('click', (event) => {
 
 // ** NUEVO: Evento para vaciar el carrito cuando se haga clic en el botón de WhatsApp **
 
-document.querySelector('.buy').addEventListener('click', (event) => {
-    // Vaciar el carrito después de un pequeño retraso (500ms)
-    setTimeout(() => {
-        cart = []; // Vaciar el carrito
-        localStorage.setItem('cart', JSON.stringify(cart)); // Guardar el carrito vacío en localStorage
-        updateCartCount();  // Actualizar el contador (se actualizará a 0)
-        updateCartView();   // Actualizar la vista para reflejar que el carrito está vacío
-    }, 500); // Retraso de 500ms (puedes ajustarlo según lo necesites)
+document.addEventListener("DOMContentLoaded", () => {
+    const buyButton = document.querySelector('.buy'); 
+
+    if (buyButton) {
+        buyButton.addEventListener('click', () => {
+            setTimeout(() => {
+                cart = [];  // Vaciar el carrito
+                localStorage.setItem('cart', JSON.stringify(cart)); // Guardar el carrito vacío en localStorage
+                updateCartCount();  // Actualizar el contador
+                updateCartView();   // Reflejar que el carrito está vacío
+            }, 1000); // 1 segundo de retraso para permitir la redirección
+        });
+    }
 });
 
 
 // Evento para comprar por WhatsApp 📩
-buyNowButton.addEventListener('click', () => {
-    if (cart.length === 0) {
-        // Usamos un pequeño retraso para mostrar la alerta antes de redirigir
-        setTimeout(() => {
-            alert("Tu carrito está vacío");
-        }, 100);  // Retraso de 100ms para que se pueda mostrar el mensaje
+document.addEventListener("DOMContentLoaded", () => {
+    const buyNowButton = document.querySelector('#buy-now'); // Asegúrate de que el selector es correcto
 
+    if (!buyNowButton) {
+        console.error("Error: No se encontró el botón #buy-now");
         return;
     }
 
-    let message = "Hola! Quiero comprar los siguientes productos:%0A";
-    cart.forEach(item => {
-        message += `- ${item.quantity} : ${item.title} - ${item.price}$%0A`;
+    buyNowButton.addEventListener('click', () => {
+        if (cart.length === 0) {
+            alert("Tu carrito está vacío");
+            return;
+        }
+
+        let message = "📲 Hola! Quiero comprar los siguientes productos:%0A";
+
+        cart.forEach(item => {
+            message += `- ${item.quantity} : ${item.title} - ${item.price}$%0A`;
+        });
+
+        // Guardar el carrito vacío ANTES de redirigir a WhatsApp
+        cart = [];
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        updateCartView();
+
+        // Redirigir a WhatsApp después de 1 segundo
+        setTimeout(() => {
+            window.location.href = `https://wa.me/584148362822?text=${message}`;
+        }, 500);
     });
-
-    // Redirigir a WhatsApp primero
-    window.location.href = `https://wa.me/584248309511?text=${message}`;
-
-    // Vaciar el carrito después de un pequeño retraso (500ms en este caso)
-    setTimeout(() => {
-        cart = []; // Vaciar el carrito
-        localStorage.setItem('cart', JSON.stringify(cart)); // Guardar el carrito vacío en localStorage
-        updateCartCount();  // Actualizar el contador (se actualizará a 0)
-        updateCartView();   // Actualizar la vista para reflejar que el carrito está vacío
-    }, 500); // Retraso de 500ms (puedes ajustarlo según lo necesites)
 });
+
+
+
+
+
+
+
 
 
 
