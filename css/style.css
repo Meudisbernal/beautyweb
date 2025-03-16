@@ -981,20 +981,21 @@ ul{
 }
 
 .cart-product-quantity {
-    min-width: 21px; /* Espacio fijo para cantidad */
+    min-width: 20px; /* Espacio fijo para cantidad */
     font-weight: bold;
 }
 
 .cart-product-name {
     flex-grow: 1;
     text-align: left;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 .cart-product-price {
     min-width: 60px; /* Espacio para el precio */
-    text-align: right;
-    font-weight: bold;
+    text-align: left;
+    font-weight: 500;
+    position: relative;
 }
 
 
@@ -1006,6 +1007,8 @@ ul{
     padding: 5px; 
     transition: transform 0.2s ease; 
     text-align: right;
+    position: absolute;
+    right: 5px;
 }
 
 .remove-item:hover {
@@ -1026,6 +1029,7 @@ ul{
     border-radius: 5px;
     margin-top: 20px;
     transition: 0.2s;
+    font-size: 1rem;
 }
 
 #buy-now:hover {
