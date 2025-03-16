@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Redirigir a WhatsApp después de 1 segundo
         setTimeout(() => {
-            window.location.href = `https://wa.me/584148362822?text=${message}`;
+            window.location.href = `https://wa.me/584248309511?text=${message}`;
         }, 500);
     });
 });
