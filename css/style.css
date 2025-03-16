@@ -650,7 +650,7 @@ ul{
         margin-top: 10px;
     }
     .nav-btns{
-        margin-left: auto;
+        /* margin-left: auto; */
     }
     .logo{
         height: 100px;
