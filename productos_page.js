@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        let message = "📲 Hola! Quiero comprar los siguientes productos:%0A";
+        let message = "✆ Hola! Quiero comprar los siguientes productos:%0A";
 
         cart.forEach(item => {
             message += `- ${item.quantity} : ${item.title} - ${item.price}$%0A`;

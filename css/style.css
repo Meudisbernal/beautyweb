@@ -4,6 +4,11 @@
     font-family: poppins;
     box-sizing: border-box;
 }
+
+body {
+    overflow-x: hidden !important;
+}
+
 a{
     text-decoration: none;
 }
