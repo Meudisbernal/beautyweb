@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     title.textContent = product.title;
     details.textContent = product.description || "Sin descripción disponible";
     price.textContent = `${product.price}$`;
-    buy.href = `https://wa.me/5491123456789?text=Hola!%20Quiero%20comprar%20el%20producto%20${product.title}`;
+    buy.href = `https://wa.me/584248309511?text=☆Hola!%20Quiero%20comprar%20el%20producto%20${product.title}`;
   } else {
     console.error('Producto no encontrado');
     // Mostrar mensaje de error en la página
