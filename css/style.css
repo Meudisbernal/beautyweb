@@ -3,9 +3,8 @@
     padding: 0px;
     font-family: poppins;
     box-sizing: border-box;
-    overflow-x: hidden !important;
+    /* overflow-x: hidden !important; */
 }
-
 
 a{
     text-decoration: none;
@@ -66,7 +65,7 @@ ul{
 .nav-btns a span {
     position: absolute;
     right: 0;
-    bottom: -8px;
+    bottom: 0px;
     width: 25px;
     background-color: black;
     color: white;
@@ -870,14 +869,17 @@ ul{
 .cart-list {
     position: absolute;
     top: 66px;
-    right: 53%;
-    /* transform: translateY(-50%); */
+    right: auto; /* No lo alinea a la derecha */
+    left: 50%; /* Posiciona desde la izquierda */
+    transform: translateX(-90%); /* Centra el elemento */
     background-color: #fff;
     padding: 20px;
     width: 300px;
     box-shadow: 0 2px 33px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     z-index: 1000;
+    display: none; /* Para asegurarnos que esté oculto por defecto */
+    overflow: visible; /* Evita que el contenido sea recortado */
 }
 
 .show-cart {
