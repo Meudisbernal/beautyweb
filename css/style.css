@@ -503,9 +503,13 @@ ul{
 }
 
 .box-footer p {
-    white-space: normal;
-    word-break: break-all;
+    white-space: pre-wrap;
+    word-break: break-word;
     text-wrap: pretty;
+}
+
+.box-footer p strong {
+    color: #fbc1d0;
 }
 
 .footer-container .grupo-1 {
